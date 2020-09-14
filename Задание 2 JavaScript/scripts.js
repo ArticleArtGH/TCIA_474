@@ -8,7 +8,7 @@ return +a;
 }
 
 function f1(){
-alert("Вычисление всех нечётных чисе, встечающихся в ряду от M до числа N включительно")
+// alert("Вычисление всех нечётных чисел, встечающихся в ряду от M до числа N включительно")
 var M = check("Введите значение для М");
 var N = check("Введите значение для N");
 var sum = 0;
@@ -31,22 +31,47 @@ else{//N>=M
 document.write("Сумма всех нечётных чисел от "+M+" до "+N+": "+sum);
 }
 function f2(){
-    alert("Вывод чётных чисел от a до b, разделённых запятыми");
+    // alert("Вывод чётных чисел от a до b, разделённых запятыми");
     var a = check("Введите число a: ");
     var b = check("Введите число b: ");
     var sum = 0;
 
+    document.write("Строка с чётными числами от "+a+" до "+b+": ");
     if(a>b){
         for(var i = a;i>=b; i--){
             if(i%2==0){
-                document.write(sum+=i+",");//,,,,,,,,,,,,,
+                document.write(i);
+                if(i != b && (i != (b+1)&&(b+1)%2 == 0)){
+                    document.write(", ");
+                }
+                // if(a-b == 1){
+                //     document.write(i);
+                // }else{
+                //     if(i == b){
+                //         document.write(i);
+                //     }else{
+                //         document.write(i+", ");
+                //     }
+                //}
             }
+
         }
-    }
-    else{//b>=a
+    }else{//b>=a
         for(var i = a;i<=b; i++){
             if(i%2==0){
-                document.write(sum+=i);//,,,,,,,,,,,,,
+                document.write(i);
+                if(i != b && (i != (b-1)&&(b-1)%2 == 0)){
+                    document.write(", ");
+                }
+                // if(b-a == 1){
+                //     document.write(i);
+                // }else{
+                //     if(i == b){
+                //         document.write(i);
+                //     }else{
+                //         document.write(i+", ");
+                //     }
+                //}
             }
         }
     }
