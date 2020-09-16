@@ -39,39 +39,22 @@ function f2(){
     document.write("Строка с чётными числами от "+a+" до "+b+": ");
     if(a>b){
         for(var i = a;i>=b; i--){
-            if(i%2==0){
+            if(i%2 == 0){
+                if(i == b || i == b+1){
                 document.write(i);
-                if(i != b && (i != (b+1)&&(b+1)%2 == 0)){
-                    document.write(", ");
+                continue;
                 }
-                // if(a-b == 1){
-                //     document.write(i);
-                // }else{
-                //     if(i == b){
-                //         document.write(i);
-                //     }else{
-                //         document.write(i+", ");
-                //     }
-                //}
+                document.write(i+", ");
             }
-
         }
     }else{//b>=a
         for(var i = a;i<=b; i++){
-            if(i%2==0){
+            if(i%2 == 0){
+                if(i == b || i == b-1){
                 document.write(i);
-                if(i != b && (i != (b-1)&&(b-1)%2 == 0)){
-                    document.write(", ");
+                continue;
                 }
-                // if(b-a == 1){
-                //     document.write(i);
-                // }else{
-                //     if(i == b){
-                //         document.write(i);
-                //     }else{
-                //         document.write(i+", ");
-                //     }
-                //}
+                document.write(i+", ");
             }
         }
     }
