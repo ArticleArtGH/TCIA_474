@@ -1,0 +1,12 @@
+.cell_white{
+width:100px;
+height:100px;
+background-color:white;
+border-style:1px solid gray;
+}
+.cell_black{
+width:100px;
+height:100px;
+background-color:black;
+border-style:1px solid gray;
+}

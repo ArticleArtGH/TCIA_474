@@ -61,8 +61,22 @@ function f2(){
 
 }
 function f3(){
-    
+    var sum = 0;
+    var celing = check("Введите ограничение для максимально возможного случайноло числа");
+    var rndMax = Math.floor(Math.random()*(celing-0)+0);
+
+    for(var i = 0; i <= rndMax; i++){
+        sum+= i;
+    }
+
+    document.write("Сумма цифр случайного числа (потолок = "+celing+") от 0 до RandMax = "+rndMax+": "+sum);
 }
 function f4(){
+    var div_w = "<div class = 'cell_white'></div>";
+    var div_b = "<div class = 'cell_black'></div>";
+    
+    for(var i = 0; i<4; i++){
+        document.write(div_w, div_b);
+    }
     
 }
