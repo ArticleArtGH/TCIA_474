@@ -18,34 +18,47 @@ var arr_AH_d = new Array("A","B","C","D","E","F","G","H");
 var k = 0;
 
 for(var i = 0;i<4;i++){
-    // if(i==0){
-    //     document.write(arr_AH_t[k],arr_AH_t[k--]);
-    // }
-    for(var j = 0; j<4;j++){
-        if(j == 0){
-            document.write(num_l,div_w,div_b);
-            num_l--;
-        }else if(j==3){
-            document.write(div_w,div_b,num_r);
-            num_r--;
-        }else{
-            document.write(div_w,div_b);
+        // if(i==0){
+        //     for(var i = 0;i<8;i++){
+        //         document.write(arr_AH_t[i]);
+        //     }
+        //     document.write("<br>");
+        // }
+        for(var j = 0; j<4;j++){
+            if(j == 0){
+                document.write("<div style='display:inline-block;'>"+num_l+"</div>",div_w,
+                div_b);
+                num_l--;
+            }else if(j==3){
+                document.write(div_w,div_b,"<div style='display:inline-block;'>"+num_r+
+                "</div>");
+                num_r--;
+            }else{
+                document.write(div_w,div_b);
+            }
         }
-    }
-    document.write("<br>");
-    for(var j = 0;j<4;j++){
-        if(j==0){
-            document.write(num_l,div_b,div_w);
-            num_l--;
-        }else if(j==3){
-            document.write(div_b,div_w,num_r);
-            num_r--;
-        }else{
-            document.write(div_b,div_w);
+        document.write("<br>");
+        for(var j = 0;j<4;j++){
+            if(j==0){
+                document.write("<div style='display:inline-block;'>"+num_l+"</div>",div_b,
+                div_w);
+                num_l--;
+            }else if(j==3){
+                document.write(div_b,div_w,"<div style='display:inline-block;'>"+num_r+
+                "</div>");
+                num_r--;
+            }else{
+                document.write(div_b,div_w);
+            }
         }
-    }
-    document.write("<br>");
-}
+        document.write("<br>");
+        // if(i==3){
+        //     // document.write("<br>");
+        //     for(var i = 0; i<8;i++){
+        //         document.write(arr_AH_d[i]);
+        //     }
+        // }
+    }  
 }
 function f2(){
     var min = check("Введите минимальное число таблицы: ");
