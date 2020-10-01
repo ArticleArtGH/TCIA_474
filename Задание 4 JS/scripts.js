@@ -51,10 +51,13 @@ function task_1(){
     "</table>";
 
     document.write("<h2>Создание массива</h2> <br> <hr width='100%'> <br>"+
-    table+"<br>"+
+    "<div>"+table+"</div><br>"+
     "<h2>Сортировка массива</h2> <br> <hr width='100%'> <br>"+
-    tableSort+"<br>");
-    
+    "<div>"+tableSort+"</div><br>");
+    // document.write("<h2>Создание массива</h2> <br> <hr width='100%'> <br>");
+    // document.write(table+"<br>");
+    // document.write("<h2>Сортировка массива</h2> <br> <hr width='100%'> <br>");
+    // document.write(tableSort+"<br>");
     //Как сделать одинакового размера ячейки таблицы ?
 }
 
@@ -71,7 +74,8 @@ function task_2(){
     }
 
     document.write("<div style='width:200px; height:50px;"+ 
-    "background-color:"+arrColorOfWeek[numOfWeek-1]+"; text-align:center;"+
-    "vertical-align:middle; display:inline-block;'>"+
-    arrDayOfWeek[numOfWeek-1]+"</div>");
+    "background-color:"+arrColorOfWeek[numOfWeek-1]+";"+
+    "display:inline-block;'><div style='width:200px; height:50px;"+
+    "display:flex; justify-content:center;align-items:center;'>"+
+    arrDayOfWeek[numOfWeek-1]+"</div></div>");
 }
