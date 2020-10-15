@@ -3,10 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <link href="" rel="stylesheet">
-        <title>profil cats</title>
+        <title></title>
     </head>
     <body>
-	<img src="cat.png">
         <div class="container">
             <div class="container1">
                 <div class="cat1"><img src=".jpg"></div>
