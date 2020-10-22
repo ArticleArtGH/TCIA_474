@@ -6,16 +6,29 @@
         <script text="text/javascript" src="scripts.js"></script>
     </head>
     <body>
-        <h1>Обращение к объектам документа и браузера</h1>
-        <hr>
-        <img src="1.png">
-        <img src="2.png">
-        <img src="3.png">
-        <p>Форма с кнопками</p>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
-        <button></button>
+        <form name="form_main"></form>
+            <h1 class="h1_headline" id="h1_headline" name="h1_headline"
+            style="color:red" 
+             onMouseOver="fMouseOver()" onMouseOut="fMouseOut()">
+                Обращение к объектам документа и браузера</h1>
+
+            <hr id="hr1">
+
+            <div id="div_img">
+                <img src="img/1.png" width="200" height="400">
+                <img src="img/2.png" width="200" height="400">
+                <img src="img/3.png" width="200" height="400">
+            </div>
+
+            <p id="p1" style="color:red">Форма с кнопками</p>
+        
+            <div id="div_btn">
+                <button onClick="btn_date()">Даты</button>
+                <button onClick="btn_new_wnd()">Новое окно</button>
+                <button type="multiline" onClick="btn_page()">Страница</button>
+                <button onClick="btn_line()">Линия</button>
+                <button onClick="btn_image()">Рисунок</button>
+            </div>
+        </form>
     </body>
 </html>
