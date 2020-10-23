@@ -12,6 +12,16 @@ window.onload = function(){
     var hr1 = document.getElementById("hr1");
     hr1.style.height="5px";
     hr1.style.background="black";
+
+    var img = document.getElementById("div_img");
+    img.getElementsByTagName("img")[0].style.border="10px solid black";
+    img.getElementsByTagName("img")[1].style.border="10px solid black";
+    img.getElementsByTagName("img")[2].style.border="10px solid black";
+
+    var p1 = document.getElementById("p1");
+    p1.style.fontWeight="bold";
+    p1.style.fontSize="20px";
+
 }
 
 function fMouseOver(){
@@ -23,59 +33,81 @@ function fMouseOut(){
     //h1_headline.style.color="red";
 }
 
-// function btn_date(){
-//     var dayOfWeek = new Array("понедельниык","вторник","среда","четверг",
-//     "пятница", "суббота", "воскресенье");
-//     var month = new Array("январь", "февраль", "март", "апрель", "май",
-//     "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь")
-//     var d = new Date();
+function btn_date(){
+    var d = new Date();
+    var month = new Array("январь", "февраль", "март", "апрель", "май",
+    "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь");
+    var dayOfWeek = new Array("понедельниык","вторник","среда","четверг",
+     "пятница", "суббота", "воскресенье");
+    
+    var dCurrent = new Date(d.getFullYear(),d.getMonth(),d.getDate());
+    var dStart = new Date(2020,8,1);
+    var datePast = (dCurrent-dStart)/1000/60/60/24;
 
-//     var s = "Сегодня "+d.getDate()+" "+(month[d.getMonth()])+" "+
-//     d.getFullYear()+", "+dayOfWeek[d.getDay()-1]+"\n";
-//     s+="С начала учебного года прошло: "+(d.setHours(d.getFullYear()-2020,
-//     d.getMonth()-8,d.getDate()-1)/24)+"\n";
-//     s+="До конца учебного года осталось: "+"\n";//Когда конец учебного 
-//     //года
+    var dEnd = new Date(2020,11,15);
+    var remainder = (dEnd - dCurrent)/1000/60/60/24;
 
-//     alert(s);
-// }
+    var s = "Сегодня "+d.getDate()+" "+month[d.getMonth()]+" "+
+    d.getFullYear()+" "+dayOfWeek[d.getDay()-1]+"\n"+
+    "С начала учебного года прошло: "+datePast+"\n"+
+    "До конца учебного года осталось: "+remainder;
 
-// function btn_new_wnd(){
-//     document.write("<form>"+
-//         "<h1 style='color:red;'>Желаю удачи и счатсья!</h1>"+
-//         "<hr width='300px' text-align='left'>"+
-//         "<img src='img/4.png' width='400px' height='300px'>"+
-//         "<button href='index.html'>Назад</button>"+
-//     "</form>");
-// }
+    alert(s);
+}
 
-// function btn_page(){
-//     var ls="";
-//     for(var i = 0; i<document.all.length;i++){
-//         ls+=String(i)+String(document.getElementsByTagName[i])+
-//         String(document.getElementById[i]);
+function btn_new_wnd(){
+    var newWnd = window.open("newWnd.html","hello", "width=500, height = 500");//url = "newWnd.html"//"newWnd.html", "New Window");
+
+    newWnd.document.write("<form>"+
+        "<h1 style='color:red;'>Желаю удачи и счатсья!</h1>"+
+        "<hr width='300px' text-align='left'>"+
+        "<img src='img/4.png' width='400px' height='300px'>"+
+        "<button>Назад</button>"+
+    "</form>");
+}
+
+function btn_page(){
+    var ls="";
+    var id;
+    for(var i = 0; i<document.all.length;i++){
+        ls+=i+" tagName = "+document.all[i].tagName+
+        " id = "+document.all[i].id+"\n";//id(i)+"\n";
+    }
+    alert(ls);
+}
+// function id(i){
+//     if(document.all[i].id!=null)
+//     {return;
+//     }else{
+//     return null;
 //     }
-//     alert(ls);
-// }
 
+    // var r //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    // var g //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    // var b //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
 function btn_line(){
     var r = parseInt(Math.floor(Math.random()*(255 - 0)+0));
     var g = parseInt(Math.floor(Math.random()*(255 - 0)+0));
     var b = parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    //document.getElementById("hr1").style.color=rgb(r, g, b);
-    document.getElementById("hr1").style.height="5px";
-    document.getElementById("hr1").style.background="rgb("+r+","+g+","+b+")";
+    
+    var hr1 = document.getElementById("hr1").style;
+    hr1.height="5px";
+    hr1.background="rgb("+r+","+g+","+b+")";
+
+    return[r,g,b];
 }
 
 function btn_image(){
     // var img = document.getElementById("div_img").img[0].style.border="1px solid red"
-    var img = document.getElementById("div_img").getElementsByTagName("img")[0].style.border
-    ="1px solid orange";
-    //var document.getElementById("div_img");
-    // var i = 5;
-    // if(i>7){
-    //     i=4;
-    // }
-    // i++;
-    // document.getElementsById[i].style.border="1 solid gold";
+    //var hr1 = document.getElementById("hr1");
+    //var bgColor = hr1.style.background;//window.getComputedStyle(hr1).background;
+    //console.log(bgColor); 
+    var r = btn_line()[0];//parseInt(hr1.style.background.r);//bgColor[0];//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    var g = btn_line()[1];//parseInt(hr1.style.background.g);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    var b = btn_line()[2];//parseInt(hr1.style.background.b);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    //console.log(r);
+     var img = document.getElementById("div_img");
+    img.getElementsByTagName("img")[(Math.floor(Math.random()*(3-0)+0))
+    ].style.border="10px solid rgb("+r+","+g+","+b+")";//+hr1.style.background+")";//+bgColor+")";
+    //console.log(window.getComputedStyle(img).border);
 }
