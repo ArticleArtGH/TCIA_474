@@ -56,14 +56,14 @@ function btn_date(){
 }
 
 function btn_new_wnd(){
-    var newWnd = window.open("newWnd.html","hello", "width=500, height = 500");//url = "newWnd.html"//"newWnd.html", "New Window");
+    var newWnd = window.open("newWnd.html","New window", "width=500, height = 500");//url = "newWnd.html"//"newWnd.html", "New Window");
 
-    newWnd.document.write("<form>"+
-        "<h1 style='color:red;'>Желаю удачи и счатсья!</h1>"+
-        "<hr width='300px' text-align='left'>"+
-        "<img src='img/4.png' width='400px' height='300px'>"+
-        "<button>Назад</button>"+
-    "</form>");
+    // newWnd.document.write("<form>"+
+    //     "<h1 style='color:red;'>Желаю удачи и счатсья!</h1>"+
+    //     "<hr width='300px' text-align='left'>"+
+    //     "<img src='img/4.png' width='400px' height='300px'>"+
+    //     "<button>Назад</button>"+
+    // "</form>");
 }
 
 function btn_page(){
@@ -82,32 +82,37 @@ function btn_page(){
 //     return null;
 //     }
 
-    // var r //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    // var g //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    // var b //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    var r; //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    var g; //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    var b; //= parseInt(Math.floor(Math.random()*(255 - 0)+0));
 function btn_line(){
-    var r = parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    var g = parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    var b = parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    r = parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    g = parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    b = parseInt(Math.floor(Math.random()*(255 - 0)+0));
     
     var hr1 = document.getElementById("hr1").style;
     hr1.height="5px";
     hr1.background="rgb("+r+","+g+","+b+")";
 
-    return[r,g,b];
+    //return[r,g,b];
 }
 
+var el=+2;
 function btn_image(){
     // var img = document.getElementById("div_img").img[0].style.border="1px solid red"
     //var hr1 = document.getElementById("hr1");
     //var bgColor = hr1.style.background;//window.getComputedStyle(hr1).background;
     //console.log(bgColor); 
-    var r = btn_line()[0];//parseInt(hr1.style.background.r);//bgColor[0];//parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    var g = btn_line()[1];//parseInt(hr1.style.background.g);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
-    var b = btn_line()[2];//parseInt(hr1.style.background.b);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    // var r = btn_line()[0];//parseInt(hr1.style.background.r);//bgColor[0];//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    // var g = btn_line()[1];//parseInt(hr1.style.background.g);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
+    // var b = btn_line()[2];//parseInt(hr1.style.background.b);//parseInt(Math.floor(Math.random()*(255 - 0)+0));
     //console.log(r);
+    el++;
+    if(el==3){
+        el=0
+    }
      var img = document.getElementById("div_img");
-    img.getElementsByTagName("img")[(Math.floor(Math.random()*(3-0)+0))
+    img.getElementsByTagName("img")[el
     ].style.border="10px solid rgb("+r+","+g+","+b+")";//+hr1.style.background+")";//+bgColor+")";
     //console.log(window.getComputedStyle(img).border);
 }

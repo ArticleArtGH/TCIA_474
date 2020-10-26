@@ -1,6 +1,18 @@
 <form>
     <h1 style='color:red;'>Желаю удачи и счатсья!</h1>
-    <hr width='300px' text-align='left'>
+    <hr id="nWhr1" width="300px">
     <img src='img/4.png' width='400px' height='300px'>
-    <button><a href='index.html' style = "text-decoration:none">Назад</a></button>
+    <button onClick="WndClose()">Назад</button>
+    <script type="text/javascript">
+    window.onload = function(){
+        var nWhr1=document.getElementById("nWhr1");
+        nWhr1.style.display="inline-block";
+        nWhr1.style.textAlign="left";  
+    }
+
+        function WndClose(){
+            close();
+        }
+    </script>
+    <!-- <button><a href='index.html' style = "text-decoration:none">Назад</a></button> -->
 </form>
