@@ -1,0 +1,29 @@
+legend{
+    font-size:24px;
+    margin-left:70px;
+}
+
+.labIn{
+    margin-bottom:5px;
+}
+
+#minV{
+    margin-left:16px;
+}
+#maxV{
+    margin-left:13px;
+}
+#count{
+    margin-left:40px;
+}
+
+#btnCalc{
+    padding-left:20px;
+    padding-right:20px;
+    margin-top:10px;
+    margin-left:13px;
+}
+#btnOutput{
+    padding-left:30px;
+    padding-right:30px;   
+}

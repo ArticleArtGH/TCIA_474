@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="styles.css">
+    <title>Практическая работа 6</title>
+    <script text = "text/javascript" src = "scripts.js"></script>
+</head>
+<body>
+    <form>
+       <fildset>
+           <legend>Обработка текстового поля</legend>
+           <br>
+           <label for="minV">Min-е значение:</label>
+           <input id="minV" class="labIn" type="text">
+           <br>
+           <label for="maxV">Max-е значение:</label>
+           <input id="maxV" class="labIn" type="text">
+           <br>
+           <label for="count">Количество:</label>
+           <input id="count" class="labIn" type="text">
+           <br>
+           <label for="sum">Сумма элементов:</label>
+           <input id="sum" class="labIn" type="text" readonly>
+           <br>
+           <button id="btnCalc" onclick="calc()">Вычислить</button>
+           <button id="btnOutput" onclick="output()">Вывести</button>
+       </fildset> 
+    </form>
+</body>
+</html>
