@@ -1,0 +1,11 @@
+fieldset{
+    border: 1px solid blue;
+}
+.out{
+    overflow-y:scroll;/*прокрутка по вертикали*/
+}
+.string{
+    display:inline;
+    border: 5px solid rgba(21, 255, 0, 0.849);
+    padding: 2px 2px 2px 2px;
+}
