@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Задание 7</title>
+    </head>
+    <body>
+        <h1>Обработка формы</h1>
+        <form>
+            <label for="months">Выберите месяц:</label>
+            <br><br>
+            <select id="months" size="12" onchange="choose(this.value)">
+                <option value="0">Январь</option>
+                <option value="1">Февраль</option>
+                <option value="2">Март</option>
+                <option value="3">Апрель</option>
+                <option value="4">Май</option>
+                <option value="5">Июнь</option>
+                <option value="6">Июль</option>
+                <option value="7">Август</option>
+                <option value="8">Сентябрь</option>
+                <option value="9">Октябрь</option>
+                <option value="10">Ноябрь</option>
+                <option value="11">Декабрь</option>
+            </select>
+            <br>
+                <br>
+                <label>Это месяц:</label>
+                <br>
+                <label for="thisMonth" name="lbl_month"></label>
+                <input id="thisMonth" type="text" value="">
+        </form>
+        
+        <style>
+            #thisMonth{
+                position:absolute;
+            }
+        </style>
+
+        <script type="text/javascript">
+            document.getElementById("thisMonth").style.left="90px";
+            
+            function choose(select){
+                var value = document.getElementsByTagName("option")[select].innerHTML;
+                // OR //var value = document.getElementsByTagName("option")[select].textContent;
+                
+                document.getElementById("thisMonth").value = value;
+                document.getElementsByName("lbl_month")[0].textContent = value;
+                    // OR //document.getElementsByClassName("lbl_month")[0].textContent = value;
+                    // OR //document.getElementsByTagName("label")[2].innerHTML = value;
+            }
+        </script>
+    </body>
+</html>
