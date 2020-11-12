@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Задание 7</title>
+    </head>
+    <body>
+        <h1>Обработка формы</h1>
+        <form>
+            <label for="yourName">Введите имя:</label>
+            <input id="yourName" type="text" value="">
+            <br>
+            <label>Укажите Ваш пол:</label>
+            <br>
+            <input id="genderM" name="gender" type="radio" value="male">
+            <label for="genderM" >М</label>
+            <input id="genderF" name="gender" type="radio" value="female">
+            <label for="genderF">Ж</label>
+            <br>
+            <label>Укажите квартал:</label>
+            <br>
+            <select id="quarter" size="4" onchange="choose(this.value)">
+                <option value="0">1 квартал</option>
+                <option value="1">2 квартал</option>
+                <option value="2">3 квартал</option>
+                <option value="3">4 квартал</option>
+            </select>
+            <br><br>
+            <fieldset id="inProfit">
+                <legend>Доход по месяцам:</legend>
+                <label id="month1L" for="month1"></label>
+                <input id="month1" type="text">
+                <br><br>
+                <label id="month2L" for="month2"></label>
+                <input id="month2" type="text">
+                <br><br>
+                <label id="month3L" for="month3"></label>
+                <input id="month3" type="text">
+                <br><br>
+                <button>Отправить</button>
+                <button value="reset">Очистить</button>
+            </fieldset>
+            <br>
+            <fieldset id="outProfit">
+                <label id="yourName">Уважаемый</label>
+                <label id="yourName">Ваш доход за квартал</label>
+                <legend>Доход по месяцам:</legend>
+                <input id="month1" type="text">
+                <br><br>
+                <input id="month1" type="text">
+                <br><br>
+                <input id="month1" type="text">
+            </fieldset>
+            
+                
+                <!-- <label>Это месяц:</label>
+                <br>
+                <label for="thisMonth" name="lbl_month"></label>
+                <input id="thisMonth" type="text" value=""> -->
+        </form>
+        
+        <style>
+            #thisMonth{
+                position:absolute;
+            }
+        </style>
+
+        <script type="text/javascript">
+            var quarter1 = ["Январь","Февраль","Март"];
+            var quarter2 = ["Апрель","Май","Июнь"];
+            var quarter3 = ["Июль","Августь","Сентябрь"];
+            var quarter4 = ["Октябрь","Ноябрь","Декабрь"];
+            var quarters = ["quarter1","quarter2","quarter3","quarter4"];
+
+            //document.getElementById("thisMonth").style.left="90px";
+            
+            function choose(select){
+                for(var i=0;i<3;i++){
+
+                    // console.log("month"+(i+1)+"L");
+                    document.getElementById("month"+(i+1)+"L").textContent=
+                    (quarters[parseInt(select)])[i];
+                }
+
+
+                // var value = document.getElementsByTagName("option")[select].innerHTML;
+                // // OR //var value = document.getElementsByTagName("option")[select].textContent;
+                
+                // document.getElementById("thisMonth").value = value;
+                // document.getElementsByName("lbl_month")[0].textContent = value;
+                //     // OR //document.getElementsByClassName("lbl_month")[0].textContent = value;
+                //     // OR //document.getElementsByTagName("label")[2].innerHTML = value;
+            }
+        </script>
+    </body>
+</html>
