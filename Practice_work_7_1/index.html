@@ -37,26 +37,12 @@
                 <label id="month3L" for="month3"></label>
                 <input id="month3" type="text">
                 <br><br>
-                <button>Отправить</button>
-                <button value="reset">Очистить</button>
+                <button type="button" onClick="sendInProfit()">Отправить</button>
+                <button  type = "button" onClick="clearInProfit()">Очистить</button>
             </fieldset>
             <br>
             <fieldset id="outProfit">
-                <label id="yourName">Уважаемый</label>
-                <label id="yourName">Ваш доход за квартал</label>
-                <legend>Доход по месяцам:</legend>
-                <input id="month1" type="text">
-                <br><br>
-                <input id="month1" type="text">
-                <br><br>
-                <input id="month1" type="text">
             </fieldset>
-            
-                
-                <!-- <label>Это месяц:</label>
-                <br>
-                <label for="thisMonth" name="lbl_month"></label>
-                <input id="thisMonth" type="text" value=""> -->
         </form>
         
         <style>
@@ -70,26 +56,72 @@
             var quarter2 = ["Апрель","Май","Июнь"];
             var quarter3 = ["Июль","Августь","Сентябрь"];
             var quarter4 = ["Октябрь","Ноябрь","Декабрь"];
-            var quarters = ["quarter1","quarter2","quarter3","quarter4"];
-
-            //document.getElementById("thisMonth").style.left="90px";
+            var quarters = [quarter1,quarter2,quarter3,quarter4];
+            var quarter = null;
+            //var quarterS = false;
+            
+            document.getElementById("inProfit").style.borderColor="blue";
+            document.getElementById("outProfit").style.borderColor="blue";
             
             function choose(select){
+                quarterS=select;
+                quarter = Number(select)+1;//для отправки
                 for(var i=0;i<3;i++){
 
                     // console.log("month"+(i+1)+"L");
                     document.getElementById("month"+(i+1)+"L").textContent=
-                    (quarters[parseInt(select)])[i];
+                    quarters[select][i];
                 }
+            }
+            function clearInProfit(){
+                for(var i = 1; i<=3; i++){
+                    document.getElementById(("month"+i)).value = null;
+                }
+            }
 
+            function sendInProfit(){
+                var send ="";
+                var genderM = document.getElementById("genderM");
+                var genderF = document.getElementById("genderF");
+                // var yourName = document.getElementById("yourName").value;
+                // var month1 = document.getElementById("month1").value;
+                // var month2 = document.getElementById("month2").value;
+                // var month3 = document.getElementById("month3").value;
 
-                // var value = document.getElementsByTagName("option")[select].innerHTML;
-                // // OR //var value = document.getElementsByTagName("option")[select].textContent;
-                
-                // document.getElementById("thisMonth").value = value;
-                // document.getElementsByName("lbl_month")[0].textContent = value;
-                //     // OR //document.getElementsByClassName("lbl_month")[0].textContent = value;
-                //     // OR //document.getElementsByTagName("label")[2].innerHTML = value;
+                //if(yourName!=null&&month1!=null&&month2!=null&&month3!=null&&quarterS!=false){
+                if(genderM.checked){
+                    send+="Уважаемый";
+                    send=Profit(send);
+                }else if(genderF.checked){
+                    send+="Уважаемая";
+                    send=Profit(send);
+                }
+                document.getElementById("outProfit").innerHTML = send;
+                }
+            //}
+            function Profit(send){
+                send+=" "+document.getElementById("yourName").value+".<br>";
+                send+="Ваш доход за "+quarter+"-й квартал:";
+                send+="<table border='1px' cellspacing='0px' cellpadding='5px'>"+
+                    "<tr>";
+                    for(var i = 1; i<=3;i++){
+                        send+="<td>"+document.getElementById("month"+i+"L").textContent+"</td>";
+                    }
+                    send+="<td>Налоги</td><td>Итого</td></tr>";
+                    send+="<tr>";
+                    var profit = 0;
+                    for(var i = 1;i<=3;i++){
+                        var monthP = Number(document.getElementById("month"+i).value);
+                        profit+=monthP;
+                        send+="<td>"+monthP+"</td>";
+                    }
+                    var taxes = profit/100*13;
+                    var total = profit-taxes;
+                    send+="<td>"+taxes.toFixed(2)+"</td>"+"<td>"+total.toFixed(2)+"</td>";
+                    send+="</tr>";
+                    send+="</table>";
+                    send = "<p>"+send+"</p>";
+                    return send;
             }
         </script>
     </body>
