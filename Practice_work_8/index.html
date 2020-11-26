@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая работа 8</title>
+    </head>
+    <body>
+        <style>
+            #cnv1{
+                border: 1px solid black;
+                width:500px;
+                height:100px;
+                /* background-color: red; */
+            }
+            #cnv2{
+                border: 1px solid black;
+                width:50px;
+                height:50px;
+            }
+        </style>
+
+        <canvas id="cnv1"></canvas>
+        <!-- <canvas id="cnv2"></canvas> -->
+        
+        <script>
+            var cnv1 = document.getElementById("cnv1");
+            var ctx1 = cnv1.getContext("2d");
+            // var cnv2 = document.getElementById("cnv2");
+            // var ctx2 = cnv2.getContext("2d");
+
+            //ctx1.//strokeRect(10, 10, 100, 100);
+            ctx1.fillRect(10, 10, 100, 100);
+            ctx1.fillStyle = "red";
+            ctx1.fillRect(5, 5, 50, 50)
+
+            ctx1.fillStyle = "red";// = "orange";
+            ctx1.lineWidth = "5px";
+            ctx1.strokeStyle = "orange";
+
+            
+        </script>
+    </body>
+</html>
