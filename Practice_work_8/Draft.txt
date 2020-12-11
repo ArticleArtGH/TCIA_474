@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая работа 8</title>
+    </head>
+    <body onload="createImage()">
+    <!-- <body> -->
+        <style>
+            #cnv1{
+                border: 2px solid black;
+                widows: 300px;
+                height: 150px;
+                /* background-color: white; */
+            }
+            #cnv2{
+                border: 2px solid black;
+                width: 300px;
+                height: 150px;
+                margin-left: 100px;
+            }
+        </style>
+
+        <canvas id="cnv1"></canvas>
+        <canvas id="cnv2"></canvas>
+        <!-- <canvas id="cnv2"></canvas> -->
+        
+        <script>
+            // cxt1.strokeStyle = "orange";
+            // //cxt1.fillStyle = "orange";
+            // cxt1.fillStyle = "blue";
+            // cxt1.lineWidth = 2;
+            // cxt1.strokeRect(10, 10, 10, 50);
+            // cxt1.fillRect(10, 10, 10 , 50);
+            
+            // cxt1.clearRect(12, 12, 5, 10);
+
+
+            // cxt1.fillStyle ="#face8d";
+
+            // var gradient = cxt1.createLinearGradient(0, 0, 300, 150);
+            // gradient.addColorStop(0, 'green');
+            // gradient.addColorStop(0.5, 'rgba(0, 255, 255, 0.5)');
+            // gradient.addColorStop(1, 'black');
+
+            // cxt1.fillStyle = gradient;
+            // cxt1.fillRect(0, 0, 400, 200);
+
+            // function createImage(){
+            // var cnv1 = document.getElementById("cnv1");
+            // var cxt1 = cnv1.getContext("2d");
+            // cxt1.strokeRect(20, 20, 50, 50);
+            // cxt1.fillRect(80, 80, 50, 50);
+
+            // var cnv2 = document.getElementById("cnv2");
+            // cxt2 = cnv2.getContext("2d");
+            // cxt2.strokeStyle = "red";
+            // cxt2.strokeRect(20, 20, 50, 50);
+            // cxt2.fillSytle = "blue";
+            // cxt2.fillRect(80, 80, 50, 50);
+            // cxt2.clearRect(50, 50, 50, 50);
+            // }
+              
+            
+            var cnv1 = document.getElementById("cnv1");
+            var cxt1 = cnv1.getContext("2d");
+            
+            cxt1.beginPath()
+            cxt1.moveTo(10, 10);
+            cxt1.lineTo(20, 20);
+            cxt1.closePath();
+            cxt1.stroke();
+            cxt1.fill();
+
+            var cxt2 = document.getElementById("cnv2").getContext("2d");
+            cxt2.beginPath();
+            for(var y = 10; y < 400; y += 10){
+                cxt2.moveTo(10, y);
+                cxt2.lineTo(90, y);
+            }
+            cxt2.stroke();
+
+            function createImage(){
+                
+                for(var i = 0; i<=1.8*Math.PI; i+=0.3){
+                    cxt1.beginPath();
+                    cxt1.arc(100, 100, 75, 0.3 * Math.PI, (i+0.3)*Math.PI, false);
+                    cxt1.lineWidth = 5;
+                    cxt1.strokeStyle = "black";
+                    //setTimeout(json => cxt1.stroke(), 1000);
+                    cxt1.stroke();
+                    // var ms = 1000;
+                    // function sleep(ms){
+                    //     ms+=new Date().getTime();
+                    //     while(new Date()<ms){}
+                    // }
+                }
+            }
+            
+            cxt2.font = '30px Tahoma';
+            cxt2.textBaseline = 'handing';
+            cxt2.fillText("Hello!", 10, 30);
+            
+            
+        </script>
+    </body>
+</html>

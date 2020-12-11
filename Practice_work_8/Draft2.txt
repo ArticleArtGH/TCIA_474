@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая работа 8</title>
+    </head>
+    <body>
+        <style>
+            #cnv1{
+                border: 2px solid black;
+                width: 450px;
+                height: 150px;
+                background-color: white;
+            }
+        </style>
+
+        <canvas id="cnv1"></canvas>
+        <canvas id="cnv2"></canvas>
+        
+        <script>
+            var cnv1 = document.getElementById("cnv1");
+            var cxt1 = cnv1.getContext("2d");
+            //var arrColors = ['red', 'orange', 'yellow', 'green', 'cyan', 'blue', 'violet'];
+            var arrColors = ['#ff0000', '#ffa500', '#ffff00', '#00ff00', '#00ffff', '#0000ff', '#8b00ff'];
+            var arrAcanal = ['40','80','bf','ff'];
+            var gradient = cxt1.createLinearGradient(0, 0, 0, 0);
+        
+            // for(var i = 0; i<7; i++){
+            //     for(var j = 0; j<4; j++){
+            //         cxt1.fillStyle = arrColors[i]+arrAcanal[j];
+            //         cxt1.fillRect(i*40+j*10, 0, 10, 100);
+                
+            //     }
+            //}
+            for(var i = 0; i<7; i++){
+                gradient = cxt1.createLinearGradient(i*40, 0, (i+1)*40, 0);
+                for(var j = 0; j<4; j++){
+                    gradient.addColorStop((j+1)*0.25, arrColors[i]+arrAcanal[j]);
+                }
+                cxt1.fillStyle = gradient;
+                cxt1.fillRect(i*40, 0, 40, 100);
+            }
+
+                
+                // gradient.addColorStop(0.25, 'rgba('+r+','+g+','+b+','+0.25+')');
+                // gradient.addColorStop(0.5, 'rgba('+r+','+g+','+b+','+0.5+')');
+                // gradient.addColorStop(0.75, 'rgba('+r+','+g+','+b+','+0.75+')');
+                // gradient.addColorStop(1, 'rgba('+r+','+g+','+b+','+1+')');
+                // gradient.addColorStop(0, "black");
+                // gradient.addColorStop(0.3, "magenta");
+                // gradient.addColorStop(0.5, "blue");
+                // gradient.addColorStop(0.6, "green");
+                // gradient.addColorStop(0.8, "yellow");
+                // gradient.addColorStop(1, "red");
+                //gradient.addColorStop(0, 'white');
+                
+                //gradient.addColorStop((j+1)/4, arrColors[i]);
+                // if(j==2){
+                // gradient.addColorStop(1, arrColors[i+1]);
+                // }
+                // gradient.addColorStop(0.5, arrColors[i]);
+                // gradient.addColorStop(0.75, arrColors[i]);
+                // gradient.addColorStop(1, arrColors[i]);
+
+                // cxt1.fillStyle = gradient;
+                // cxt1.fillRect(0, 0, 100, 100);
+                //cxt1.fillStyle = gradient;
+                
+                
+                //r = 255; g = 0; b = 0; //a=1/(i+1);
+                // if((i+1)%4 == 0){
+                //    j++; 
+                // }
+                // gradient.addColorStop(0.25, 'rgba(255, 0, 0, 1)');//red
+                // gradient.addColorStop(0, 'rgba(255, 191, 0, 1)');//orange
+                // gradient.addColorStop(0, 'rgba(251, 236, 93, 1)');//yellow
+                // gradient.addColorStop(0, 'rgba(127, 255, 0, 1)');//green
+                // gradient.addColorStop(0, 'rgba(0, 255, 255, 1)');//cyan
+                // gradient.addColorStop(0, 'rgba(0, 0, 255, 1)');//blue
+                // gradient.addColorStop(0, 'rgba(115, 7, 255, 1)');//violet
+        </script>
+    </body>
+</html>
