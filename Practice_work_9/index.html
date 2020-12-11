@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <title>Практическая работа 9</title>
+    </head >
+    <body onload = "CreationBalls()">
+        <style>
+            canvas{
+                /* border: 1px solid black; */
+            }
+        </style>
+
+        <canvas></canvas>
+
+        <script>
+            //window.onload = function(){
+            const cnv = document.querySelector("canvas");
+            const cxt = cnv.getContext("2d");
+            const width = cnv.width = window.innerWidth;
+            const height = cnv.height = window.innerHeight;
+            cnv.style.border="1px solid black";
+            cnv.style.backgroundColor="black";
+            let balls = [];
+
+            function Ball(x, y, velX, velY, color, lineW, strokeC, size){
+                this.x = x;
+                this.y = y;
+                this.velX = velX;
+                this.velY = velY;
+                this.color = color;
+                this.colorS = colorS;
+                this.lineW = lineW;
+                this.size = size;
+            }
+
+            Ball.prototype.draw = function(){
+                cxt.beginPath();
+                cxt.fillStyle = this.color;
+                cxt.arc(this.x, this.y, this.size, 0, 2*Math.PI, true);
+                cxt.fill();
+                cxt.lineWidth = lineW;
+                cxt.strokeStyle = colorS;
+                cxt.stroke();
+            }
+
+            function CreationBalls(){
+                for(let i = 0; i<30; i++){
+                    x = Math.floor(Math.random()*(width - 0)+0);
+                    y = Math.floor(Math.random()*(height - 0)+0);
+                    velX = Math.floor(Math.random()*(5-1)+1);//10);
+                    velY = Math.floor(Math.random()*(5-1)+1);//10);
+                    rndR = Math.floor(Math.random()*(255-0)+0);
+                    rndG = Math.floor(Math.random()*(255-0)+0);
+                    rndB = Math.floor(Math.random()*(255-0)+0);
+                    color = "rgb("+rndR+","+rndG+","+rndB+")";
+                    lineW = 1;
+                    colorS = "rgba(255, 255, 255, 0.5)";//"white";//"rgba("+rndR+","+rndG+","+rndB+"0.25)";//"rgb("+rndR+","+rndG+","+rndB+")";
+                    size = Math.floor(Math.random()*(40-20)+20);
+
+                    balls[i] = new Ball(x, y, velX, velY, color, lineW, colorS, size);
+                    balls[i].draw();
+                }
+                //loop();
+            }
+
+            Ball.prototype.update = function(){
+                if((this.x + this.size) >= width){
+                    this.velX = -(this.velX);
+                }
+
+                if((this.y + this.size) >= height){
+                    this.velY = -(this.velY);
+                }
+
+                if((this.x - this.size) <= 0){
+                    this.velX = -(this.velX);
+                }
+
+                if((this.y - this.size) <= 0){
+                    this.velY = -(this.velY);
+                }
+
+                this.x += this.velX;
+                this.y += this.velY;
+
+                Ball.prototype.collisionDetect = function(){
+                    for(let j = 0; j < balls.length; j++){
+                        if(!(this === balls[j])){
+                            const dx = this.x = balls[j].x;
+                            const dy = this.y = balls[j].y;
+                            const distance = Math.sqrt(dx*dx + dy*dy);
+
+                            if(distance < this.size + balls[j].size){
+                                balls[j].color = this.color = 'rgb('+ random(0, 255) +
+                                ',' + random(0, 255) + ',' + random(0, 255) +')';
+                            }
+                        }
+                    }
+                }
+            }
+            //balls[i].collisionDetect();
+            
+            function loop(){
+                cxt.fillStyle = "rgba(0, 0, 0, 0.05)";//"black";
+                cxt.fillRect(0, 0, width, height);
+
+                for(let i = 0; i < balls.length; i++){
+                    balls[i].draw();
+                    balls[i].update();
+                    
+                    // balls[i].collisionDetect();
+                }
+                requestAnimationFrame(loop);
+            }
+            loop();
+            
+            //let Ball-1 = new Ball(50, 100, 4, 4, 'blue', 10);
+        //}
+        </script>
+    </body>
+</html>
